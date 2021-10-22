@@ -1,11 +1,5 @@
 import { FunctionComponent } from 'react';
-import {
-  Switch,
-  useLocation,
-  useRouteMatch,
-  Route,
-  Redirect,
-} from 'react-router-dom';
+import { Switch, useLocation, Route, Redirect } from 'react-router-dom';
 import routeType from '../typings/routeType';
 
 interface RouterViewProps {
@@ -17,14 +11,14 @@ const RouterView: FunctionComponent<RouterViewProps> = ({
   routes,
   onEnter,
 }) => {
+  // Pathname of current page.
   const { pathname } = useLocation();
-  const match = useRouteMatch();
-  console.log('当前页面路径：' + pathname);
-  console.log('路径匹配', match);
 
+  // No redirect and no agree to go by default.
   let redirectPath: string = '';
   let agreeToGo = true;
 
+  // Change state of `redirectPath` and `agreeToGo`
   function next(path?: string) {
     agreeToGo = true;
     if (path) {
@@ -32,6 +26,7 @@ const RouterView: FunctionComponent<RouterViewProps> = ({
     }
   }
 
+  // Use hook.
   onEnter(pathname, next);
 
   return (

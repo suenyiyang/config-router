@@ -1,8 +1,16 @@
 {
   "name": "config-router",
   "version": "1.0.0",
-  "main": "index.js",
+  "author": {
+    "name": "Yiyang Sun",
+    "email": "syy11cn@outlook.com"
+  },
+  "main": "dist/src/index.js",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:syy11cn/config-router.git"
+  },
   "dependencies": {
     "react-router-dom": "^5.3.0"
   },
