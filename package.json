@@ -1,6 +1,7 @@
 {
   "name": "@syy11cn/config-router",
-  "version": "1.0.1",
+  "version": "1.0.3",
+  "description": "A route rendering and route guarding lib.",
   "author": {
     "name": "Yiyang Sun",
     "email": "syy11cn@outlook.com"

@@ -18,7 +18,7 @@ const RouterView: FunctionComponent<RouterViewProps> = ({
   let redirectPath: string = '';
   let agreeToGo = true;
 
-  // Change state of `redirectPath` and `agreeToGo`
+  // Change state of `redirectPath` and `agreeToGo`.
   function next(path?: string) {
     agreeToGo = true;
     if (path) {
@@ -32,43 +32,27 @@ const RouterView: FunctionComponent<RouterViewProps> = ({
   return (
     <Switch>
       {routes.map((route, index) => {
-        // If auth needed.
-        if (route.auth) {
-          // If `next()` called.
-          if (agreeToGo) {
-            // Need to redirect.
-            if (redirectPath) {
-              return <Redirect key={index} to={redirectPath} />;
-            } else {
-              // OK to render.
-              return (
-                <Route
-                  key={index}
-                  path={route.path}
-                  render={(props) => (
-                    <route.component
-                      {...props}
-                      routes={route.routes}
-                    ></route.component>
-                  )}
-                ></Route>
-              );
-            }
+        // If `next()` called.
+        if (agreeToGo) {
+          // Need to redirect.
+          if (redirectPath) {
+            return <Redirect key={index} to={redirectPath} />;
+          } else {
+            // OK to render.
+            return (
+              <Route
+                key={index}
+                path={route.path}
+                render={(props) => (
+                  <route.component
+                    {...props}
+                    // Pass routes of route obj down.
+                    routes={route.routes}
+                  ></route.component>
+                )}
+              ></Route>
+            );
           }
-        } else {
-          // No need for auth.
-          return (
-            <Route
-              key={index}
-              path={route.path}
-              render={(props) => (
-                <route.component
-                  {...props}
-                  routes={route.routes}
-                ></route.component>
-              )}
-            ></Route>
-          );
         }
       })}
     </Switch>
