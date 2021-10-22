@@ -75,4 +75,4 @@ const RouterView: FunctionComponent<RouterViewProps> = ({
   );
 };
 
-export { RouterView };
+export { RouterView, routeType };
