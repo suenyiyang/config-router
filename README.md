@@ -1,4 +1,4 @@
-<center>
+<div align=center>
 
 # 🎉 Config Router 🎉
 
@@ -8,34 +8,34 @@
 
 <p style="color: gray;">A route configuring, rendering and guarding lib based on React Router v5.x.</p>
 
-</center>
+</div>
 
-<center>
+<div align=center>
 
 ## Why Config Router? :thinking:
 
-</center>
+</div>
 
 **Config Router** :wave: is an attachment lib to _React Router v5.x_. It works well with React Router, helping with **route configuration, route rendering and route guarding**.
 
 If you are a _Vue Router_ user before, it is quite easy for you to get started. Of course this project is not as mature as _Vue Router_. :joy:
 
-<center>
+<div align=center>
 
 ## Features :tada:
 
-</center>
+</div>
 
 - :heavy_check_mark: **Config route** by declaring the routes array like that in Vue Router.
 - :heavy_check_mark: **Render routes** by importing and using a single component called **`RouterView`** :eyes:.
 - :heavy_check_mark: **Guard routes** that should be accessed only by authorized users.
 - :o: More is on the way...
 
-<center>
+<div align=center>
 
 ## Usage :book:
 
-</center>
+</div>
 
 You can use this package in either `react-jsx` projects or `react-tsx` projects. Take project with `vite`, `react` and `typescript` for example.
 
@@ -172,7 +172,7 @@ interface AppProps {}
 
 const App: FunctionComponent<AppProps> = () => {
   return (
-    <div className="App">
+    <div align=center className="App">
       <Header></Header>
       <Content>
         <RouterView
@@ -212,7 +212,7 @@ interface IndexProps {
 const Index: FunctionComponent<IndexProps> = ({ routes, props }) => {
   console.log('Index View');
   return (
-    <div>
+    <div align=center>
       <h1>This is Index</h1>
       <RouterView
         routes={routes}
@@ -255,7 +255,7 @@ interface IndexProps {
 const Index: FunctionComponent<IndexProps> = ({ routes, props }) => {
   console.log('Index View');
   return (
-    <div>
+    <div align=center>
       <h1>This is Index</h1>
       <RouterView
         routes={routes}
@@ -276,21 +276,21 @@ export default Index;
 
 In this situation, when a user want to access `/home/test`, corresponding route and component would be rendered. When accessing `/home` or other routes begin with `/home`, the user would be redirect to a `404` page.
 
-<center>
+<div align=center>
 
 ## Contribution :computer:
 
-</center>
+</div>
 
 Contributions are welcome. Just fork this repo and send PRs.
 
 Any questions while using this package, please open an [issue](https://github.com/syy11cn/config-router/issues) and I would manage to solve it as soon as I receive the message.
 
-<center>
+<div align=center>
 
 ## About :raised_hands:
 
-</center>
+</div>
 
 ### License
 

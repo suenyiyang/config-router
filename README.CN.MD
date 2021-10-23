@@ -1,4 +1,4 @@
-<center>
+<div align=center>
 <h1>🎉 Config Router 🎉</h1>
 
 ![English](https://img.shields.io/static/v1?label=current&message=简体中文&color=brightgreen) [![English](https://img.shields.io/static/v1?label=docs&message=English&color=lightgrey&logo=markdown)](./README.MD)
@@ -7,34 +7,34 @@
 
 <p style="color: gray;">一个基于 React Router v5.x 的路由配置、渲染和路由守卫库。</p>
 
-</center>
+</div>
 
-<center>
+<div align=center>
 
 ## `Config Router` 是什么? :thinking:
 
-</center>
+</div>
 
 **Config Router** :wave: 是一个配合 _React Router v5.x_ 使用的路由管理工具。 在 _React Router_ 的基础上，提供 **路由集中配置、路由渲染以及路由守卫** 功能。
 
 如果你曾使用过 _Vue Router_，你将很容易就能上手使用 _Config Router_。当然，本项目不如 _Vue Router_ 那样成熟。:joy:
 
-<center>
+<div align=center>
 
 ## 功能 :tada:
 
-</center>
+</div>
 
 - :heavy_check_mark: 通过声明类似 Vue Router 中 `routes` 数组的方式 **配置路由**。
 - :heavy_check_mark: 通过 `import` 一个 `RouterView` 组件的方式 **渲染路由** :eyes:。
 - :heavy_check_mark: 渲染页面前，支持自定义 **路由守卫**。
 - :o: 敬请期待……
 
-<center>
+<div align=center>
 
 ## 使用方法 :book:
 
-</center>
+</div>
 
 你可以将这个包用于 `react-jsx` 或 `react-tsx` 项目中。在下面的使用方法中，将以 `vite` + `react` + `typescript` 搭建的项目为例。
 
@@ -171,7 +171,7 @@ interface AppProps {}
 
 const App: FunctionComponent<AppProps> = () => {
   return (
-    <div className="App">
+    <div align=center className="App">
       <Header></Header>
       <Content>
         <RouterView
@@ -211,7 +211,7 @@ interface IndexProps {
 const Index: FunctionComponent<IndexProps> = ({ routes, props }) => {
   console.log('Index View');
   return (
-    <div>
+    <div align=center>
       <h1>This is Index</h1>
       <RouterView
         routes={routes}
@@ -254,7 +254,7 @@ interface IndexProps {
 const Index: FunctionComponent<IndexProps> = ({ routes, props }) => {
   console.log('Index View');
   return (
-    <div>
+    <div align=center>
       <h1>This is Index</h1>
       <RouterView
         routes={routes}
@@ -275,21 +275,21 @@ export default Index;
 
 在这种情况下，当用户想要访问 `/home/test` 时，对应的路由和组件将被渲染。而当用户想要访问 `/home` 或其他以 `/home` 开头的域名时，其将被重定向到 `404` 页面。
 
-<center>
+<div align=center>
 
 ## 贡献 :computer:
 
-</center>
+</div>
 
 欢迎贡献！你可以 fork 这个仓库，然后提 PR。
 
 在使用中有任何问题，也可以 [点击这里发布一个 issue](https://github.com/syy11cn/config-router/issues)，我收到消息后会尽快尽力处理。
 
-<center>
+<div align=center>
 
 ## 关于 :raised_hands:
 
-</center>
+</div>
 
 ### 开源协议
 
