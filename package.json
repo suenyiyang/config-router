@@ -1,7 +1,7 @@
 {
   "name": "@syy11cn/config-router",
-  "version": "1.0.3",
-  "description": "A route rendering and route guarding lib.",
+  "version": "1.0.4",
+  "description": "A route configuring, rendering and guarding lib based on React Router v5.x.",
   "author": {
     "name": "Yiyang Sun",
     "email": "syy11cn@outlook.com"

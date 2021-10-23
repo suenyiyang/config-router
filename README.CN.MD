@@ -1,88 +1,87 @@
 <center>
+<h1>🎉 Config Router 🎉</h1>
 
-# 🎉 Config Router 🎉
-
-[![中文文档](https://img.shields.io/static/v1?label=docs&message=简体中文&color=lightgrey&logo=markdown)](./README.CN.MD) ![English](https://img.shields.io/static/v1?label=current&message=English&color=brightgreen)
+![English](https://img.shields.io/static/v1?label=current&message=简体中文&color=brightgreen) [![English](https://img.shields.io/static/v1?label=docs&message=English&color=lightgrey&logo=markdown)](./README.MD)
 
 ![Language](https://img.shields.io/github/languages/top/syy11cn/config-router?logo=typescript) ![License](https://img.shields.io/npm/l/@syy11cn/config-router) ![Version](https://img.shields.io/github/package-json/v/syy11cn/config-router?logo=npm) ![Contributors](https://img.shields.io/github/contributors/syy11cn/config-router?color=green) ![](https://img.shields.io/github/last-commit/syy11cn/config-router?color=blue&logo=github)
 
-<p style="color: gray;">A route configuring, rendering and guarding lib based on React Router v5.x.</p>
+<p style="color: gray;">一个基于 React Router v5.x 的路由配置、渲染和路由守卫库。</p>
 
 </center>
 
 <center>
 
-## Why Config Router? :thinking:
+## `Config Router` 是什么? :thinking:
 
 </center>
 
-**Config Router** :wave: is an attachment lib to _React Router v5.x_. It works well with React Router, helping with **route configuration, route rendering and route guarding**.
+**Config Router** :wave: 是一个配合 _React Router v5.x_ 使用的路由管理工具。 在 _React Router_ 的基础上，提供 **路由集中配置、路由渲染以及路由守卫** 功能。
 
-If you are a _Vue Router_ user before, it is quite easy for you to get started. Of course this project is not as mature as _Vue Router_. :joy:
+如果你曾使用过 _Vue Router_，你将很容易就能上手使用 _Config Router_。当然，本项目不如 _Vue Router_ 那样成熟。:joy:
 
 <center>
 
-## Features :tada:
+## 功能 :tada:
 
 </center>
 
-- :heavy_check_mark: **Config route** by declaring the routes array like that in Vue Router.
-- :heavy_check_mark: **Render routes** by importing and using a single component called **`RouterView`** :eyes:.
-- :heavy_check_mark: **Guard routes** that should be accessed only by authorized users.
-- :o: More is on the way...
+- :heavy_check_mark: 通过声明类似 Vue Router 中 `routes` 数组的方式 **配置路由**。
+- :heavy_check_mark: 通过 `import` 一个 `RouterView` 组件的方式 **渲染路由** :eyes:。
+- :heavy_check_mark: 渲染页面前，支持自定义 **路由守卫**。
+- :o: 敬请期待……
 
 <center>
 
-## Usage :book:
+## 使用方法 :book:
 
 </center>
 
-You can use this package in either `react-jsx` projects or `react-tsx` projects. Take project with `vite`, `react` and `typescript` for example.
+你可以将这个包用于 `react-jsx` 或 `react-tsx` 项目中。在下面的使用方法中，将以 `vite` + `react` + `typescript` 搭建的项目为例。
 
-### Add `React Router` Dependencies
+### 添加 `React Router` 依赖
 
 ```bash
 yarn add -s react-router-dom
 yarn add -D @types/react-router-dom
 ```
 
-> Or with `npm`.
+> 或使用 `npm`.
 >
 > ```bash
 > npm i -s react-router-dom
 > npm i -D @types/react-router-dom
 > ```
 
-### Add `Config Router` Dependencies
+### 添加 `Config Router` 依赖
 
-After adding React Router dependencies, you can add `config-router` to your project.
+添加完 React Router 依赖后，你可以将 `config-router` 添加到项目中。
 
 ```bash
 yarn add -s @syy11cn/config-router
 ```
 
-> Or with `npm`.
+> 或使用 `npm`.
 >
 > ```bash
 > npm i -s @syy11cn/config-router
 > ```
 
-### Create a Configuration File
+### 添加配置文件
 
-Create a configuration file in `src/routes` (for example `config.ts`).
+在 `src/routes` 文件夹中创建一个配置文件（以 `config.ts` 文件为例）。
 
-Here is a sample configuration.
+以下是配置样例。
 
 ```ts
-// First you should import `routeType`.
+// 首先引入 `routeType` 类型定义
 import { routeType } from '@syy11cn/config-router';
-// Import components to be used.
+// 引入需要用到的组件
 import Index from '../views/Index';
 import Portal from '../views/Portal';
 import Test from '../views/Test';
 import Error from '../views/Error';
 
-// Routes config.
+// 路由配置
 const routes: Array<routeType> = [
   {
     path: '/home',
@@ -111,9 +110,9 @@ const routes: Array<routeType> = [
 export default routes;
 ```
 
-As shown above, routes config is an array consists of `routeType` items.
+如上所示，路由配置是一个由 `routeType` 元素组成的数组。
 
-`routeType` is declared as follows,
+`routeType` 的定义如下：
 
 ```ts
 import * as React from 'react';
@@ -128,17 +127,17 @@ interface routeType {
 export default routeType;
 ```
 
-which means the `routes` field of an item is another `routeType` array.
+其中 `routes` 字段的值是一个新的 `routeType` 数组。
 
-**Prompt in Writing Configuration**
+**配置文件编写提示**
 
-- The root route should always be the last item in a `routeType` array.
-- Never set `exact: true` when there is a `routes` field in the `routeType` item.
-- Fields `path` and `component` are required. Fields `exact` and `routes` are optional.
+- 在 `routeType` 数组中，根路由应当永远处于数组的最后一位。
+- `exact: true` 与 `routes` 字段不可兼得。
+- `path` 和 `component` 是必填项；`exact` 和 `routes` 是可选项。
 
-### Use `RouterView` Component
+### 使用 `RouterView` 组件
 
-In `main.tsx`, add `<Router>` outside the `<App>` Component.
+在 `main.tsx` 中, 给 `<App>` 组件的外层添加 `<Router>` 组件。
 
 ```tsx
 import React from 'react';
@@ -157,7 +156,7 @@ ReactDOM.render(
 );
 ```
 
-Then in `App.tsx`, use `RouterView` component.
+接下来在 `App.tsx` 中, 使用 `RouterView` 组件。
 
 ```tsx
 import { FunctionComponent } from 'react';
@@ -191,13 +190,13 @@ const App: FunctionComponent<AppProps> = () => {
 export default App;
 ```
 
-The `RouterView` component here would render routes in the `<Content>` component. Rendered components would take the place of `RouterView`.
+`RouterView` 组件将在 `<Content>` 组件中渲染路由。渲染的路由组件将取代 `RouterView` 的位置。
 
-### Nested Routes
+### 嵌套路由
 
-In the sample configuration, there is a nested route in component `Index`. **Notice that no matter where you use a `RouterView`, there should be a `routes` attribute added on it.**
+在配置的例子中，`Index` 组件包含嵌套路由。**注意：无论你在任何地方使用 `RouterView` 组件，你都需要给它传入 `routes` 字段。**
 
-Therefore, in `src/views/Index.tsx`, the component **should receive a `routes` property**, which includes nested routes under `Index` component.
+因此，在 `src/views/Index.tsx` 中，`Index` 组件应该接收一个 `routes` 属性。这个属性包含了 `Index` 组件下的子路由。
 
 ```tsx
 import { FunctionComponent } from 'react';
@@ -231,16 +230,16 @@ const Index: FunctionComponent<IndexProps> = ({ routes, props }) => {
 export default Index;
 ```
 
-### Route Guarding
+### 路由守卫
 
-Write a `Function` in `onEnter` hook, and the `Function` would be called before rendering the routes.
+向 `onEnter` 字段中传入一个函数，这个函数将在路由渲染之前被执行。
 
-Your `Function` should receive two properties, which are named `to` and `next`.
+传入的函数应该接受两个参数，分别是 `to` 和 `next`。
 
-- `to` is a `string` referring which route a user want to meet.
-- `next` is a `Function`. If you pass a string to it, `next` would help you redirect to that path. While if you call `next` without passing a property, the component would just let user go where they want.
+- `to` 是一个 `string` 类型的数据，用于表明用户将要前往哪个路由。
+- `next` 是一个 `Function` 类型的数据，如果你向 `next` 函数中传入一个字符串，那么它将帮你重定向到对应的路径；如果你直接调用 `next` 函数，则会放通用户当前的路由。
 
-The same sample code as above.
+示例代码同上：
 
 ```ts
 import { FunctionComponent } from 'react';
@@ -274,25 +273,25 @@ const Index: FunctionComponent<IndexProps> = ({ routes, props }) => {
 export default Index;
 ```
 
-In this situation, when a user want to access `/home/test`, corresponding route and component would be rendered. When accessing `/home` or other routes begin with `/home`, the user would be redirect to a `404` page.
+在这种情况下，当用户想要访问 `/home/test` 时，对应的路由和组件将被渲染。而当用户想要访问 `/home` 或其他以 `/home` 开头的域名时，其将被重定向到 `404` 页面。
 
 <center>
 
-## Contribution :computer:
+## 贡献 :computer:
 
 </center>
 
-Contributions are welcome. Just fork this repo and send PRs.
+欢迎贡献！你可以 fork 这个仓库，然后提 PR。
 
-Any questions while using this package, please open an [issue](https://github.com/syy11cn/config-router/issues) and I would manage to solve it as soon as I receive the message.
+在使用中有任何问题，也可以 [点击这里发布一个 issue](https://github.com/syy11cn/config-router/issues)，我收到消息后会尽快尽力处理。
 
 <center>
 
-## About :raised_hands:
+## 关于 :raised_hands:
 
 </center>
 
-### License
+### 开源协议
 
 [MIT](https://opensource.org/licenses/MIT)
 

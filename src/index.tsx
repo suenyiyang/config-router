@@ -4,6 +4,12 @@ import routeType from '../typings/routeType';
 
 interface RouterViewProps {
   routes: Array<routeType>;
+  /**
+   * Require a function to call before routing.
+   * @param to Pathname of user's destination.
+   * @param next Function to allow rendering.
+   * @usage Read more at [github](https://github.com/syy11cn/config-router/blob/main/README.md).
+   */
   onEnter: (to: string, next: Function) => void;
 }
 
@@ -43,6 +49,7 @@ const RouterView: FunctionComponent<RouterViewProps> = ({
               <Route
                 key={index}
                 path={route.path}
+                exact={route.exact}
                 render={(props) => (
                   <route.component
                     {...props}
