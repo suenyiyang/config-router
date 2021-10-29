@@ -1,6 +1,6 @@
 {
   "name": "@syy11cn/config-router",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "A route configuring, rendering and guarding lib based on React Router v5.x.",
   "author": {
     "name": "Yiyang Sun",
