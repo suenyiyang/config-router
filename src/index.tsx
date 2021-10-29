@@ -10,7 +10,7 @@ interface RouterViewProps {
    * @param next Function to allow rendering.
    * @usage Read more at [github](https://github.com/syy11cn/config-router/blob/main/README.md).
    */
-  onEnter: (to: string, next: Function) => void;
+  onEnter: (to: string, next: (path?: string) => void) => void;
 }
 
 const RouterView: FunctionComponent<RouterViewProps> = ({
